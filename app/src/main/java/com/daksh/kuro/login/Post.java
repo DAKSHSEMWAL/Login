@@ -11,7 +11,7 @@ public class Post {
     private String dob;
     private String phone;
     private String password;
-    private String user ;
+    private String user;
 
     public Post(String user) {
         this.user = user;

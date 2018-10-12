@@ -1,5 +1,6 @@
 package com.daksh.kuro.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,7 +31,7 @@ public class login extends AppCompatActivity {
 
 
         Retrofit retrofit = new Retrofit.Builder().
-                baseUrl("https://my-json-server.typicode.com/DAKSHSEMWAL/demo/")
+                baseUrl("http://veritracksystems.com/api/customer/login")
                 .addConverterFactory(GsonConverterFactory.create()).build();
         u = findViewById(R.id.User);
         p = findViewById(R.id.editPassword);
@@ -57,6 +58,7 @@ public class login extends AppCompatActivity {
                             String password = profile.getPassword();
                             if ((u.getText().toString().equals(email)) && (p.getText().toString().equals(password))) {
                                 Toast.makeText(login.this, "Welcome, " + name, Toast.LENGTH_SHORT).show();
+                                Intent in =new Intent(login.this,user.class);
                             } else
                                 Toast.makeText(login.this, "Enter Correct User Name Password", Toast.LENGTH_SHORT).show();
                         }

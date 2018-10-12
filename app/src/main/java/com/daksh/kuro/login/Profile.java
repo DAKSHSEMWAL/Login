@@ -4,17 +4,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class Profile {
 
+    private String status;
     private int id;
     private String email;
     private String phone;
     private String dob;
     private String gender;
     private String password;
-
-
+    private String loyality_points;
+    private String photo;
 
     @SerializedName("name")
     private String name;
+
+    public String getStatus() { return status; }
 
     public int getId() {
         return id;
@@ -43,4 +46,8 @@ public class Profile {
     public String getPhone() {
         return phone;
     }
+
+    public String getLoyality_points() { return loyality_points; }
+
+    public String getPhoto() { return photo; }
 }
