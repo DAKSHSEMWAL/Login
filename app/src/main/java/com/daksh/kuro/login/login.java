@@ -31,16 +31,16 @@ public class login extends AppCompatActivity {
 
 
         Retrofit retrofit = new Retrofit.Builder().
-                baseUrl("http://veritracksystems.com/api/customer/login")
+                baseUrl("https://my-json-server.typicode.com/DAKSHSEMWAL/demo")
                 .addConverterFactory(GsonConverterFactory.create()).build();
-        u = findViewById(R.id.User);
+        u = findViewById(R.id.Phone);
         p = findViewById(R.id.editPassword);
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
         login = findViewById(R.id.btnSignIn1);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Call<List<Profile>> call = jsonPlaceHolderApi.getEmail(u.getText().toString());
+                Call<List<Profile>> call = jsonPlaceHolderApi.getPhone(u.getText().toString());
 
                 call.enqueue(new Callback<List<Profile>>() {
                     @Override
@@ -56,9 +56,13 @@ public class login extends AppCompatActivity {
                             String name = profile.getName();
                             String email = profile.getEmail();
                             String password = profile.getPassword();
-                            if ((u.getText().toString().equals(email)) && (p.getText().toString().equals(password))) {
+                            String dob = profile.getDob();
+                            String photo = profile.getPhoto();
+                            String gender = profile.getGender();
+                            String phone = profile.getPhone();
+                            String lp = profile.getLoyality_points();
+                            if ((u.getText().toString().equals(phone)) && (p.getText().toString().equals(password))) {
                                 Toast.makeText(login.this, "Welcome, " + name, Toast.LENGTH_SHORT).show();
-                                Intent in =new Intent(login.this,user.class);
                             } else
                                 Toast.makeText(login.this, "Enter Correct User Name Password", Toast.LENGTH_SHORT).show();
                         }

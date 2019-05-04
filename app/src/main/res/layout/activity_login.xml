@@ -16,8 +16,8 @@
         android:layout_height="wrap_content">
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/User"
-            android:hint="Email Id"
+            android:id="@+id/Phone"
+            android:hint="Phone"
             android:textColorHint="@android:color/white"
             app:met_minCharacters="10"
             android:layout_width="match_parent"
